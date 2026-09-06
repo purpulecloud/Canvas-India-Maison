@@ -73,7 +73,7 @@ export function App() {
           <button onClick={() => scrollTo('corporate')}>Business</button>
         </nav>
         </div>
-        <button className="wordmark" onClick={() => scrollTo('top')}>CANVAS<span>INDIA</span></button>
+        <button className="wordmark logo-button" onClick={() => scrollTo('top')} aria-label="Canvas India home"><img src="/canvas-india-logo-transparent.png" alt="Canvas India" /></button>
         <div className="header-actions">
           <button aria-label="Search" onClick={() => scrollTo('products')}><Search size={18} /></button>
           <button aria-label="Toggle theme" onClick={() => setDark(v => !v)}>{dark ? <Sun size={18}/> : <Moon size={18}/>}</button>
@@ -82,7 +82,7 @@ export function App() {
       </header>
 
       {menu && <div className="mobile-menu-overlay" onClick={() => setMenu(false)}><aside onClick={e => e.stopPropagation()}>
-        <div className="mobile-menu-top"><span className="wordmark">CANVAS<span>INDIA</span></span><button onClick={() => setMenu(false)}><X/></button></div>
+        <div className="mobile-menu-top"><span className="wordmark mobile-logo"><img src="/canvas-india-logo-transparent.png" alt="Canvas India" /></span><button onClick={() => setMenu(false)}><X /></button></div>ss
         <div className="mobile-links">
           {['collections','products','studio','occasions','corporate','spaces'].map((id, i) => <button key={id} onClick={() => { scrollTo(id); setMenu(false); }}><small>0{i+1}</small>{id.replace('-', ' ')}</button>)}
         </div>
@@ -153,7 +153,7 @@ export function App() {
         <section className="final-statement"><div><span>CANVAS INDIA</span><h2>A blank wall is<br/><em>an invitation.</em></h2><button className="dark-button" onClick={() => openCustomize()}>Create something personal <ArrowRight size={16}/></button></div></section>
       </main>
 
-      <footer className="maison-footer"><div className="footer-brand"><button className="wordmark" onClick={() => scrollTo('top')}>CANVAS<span>INDIA</span></button><p>Personalized prints, frames and objects made in India for the spaces you call yours.</p></div><div className="footer-cols"><div><b>Explore</b><button onClick={() => scrollTo('collections')}>Collections</button><button onClick={() => scrollTo('products')}>Products</button><button onClick={() => scrollTo('occasions')}>Gifting</button></div><div><b>Make</b><button onClick={() => openCustomize()}>Custom Studio</button><button onClick={() => setQuoteOpen(true)}>Corporate</button><button onClick={() => scrollTo('spaces')}>Real Spaces</button></div><div><b>Care</b><span>4–6 day delivery</span><span>Secure packaging</span><span>Support: +91 90765 43510</span></div></div><div className="footer-bottom"><span>© 2026 Canvas India</span><span>Made for Indian homes & businesses</span><span><Camera size={15}/> @canvasindia</span></div></footer>
+      <footer className="maison-footer"><div className="footer-brand"><button className="wordmark logo-button footer-logo" onClick={() => scrollTo('top')} aria-label="Canvas India home"><img src="/Codex Image 6 Sept 2026, 10_11_12.png" alt="Canvas India" /></button><p>Personalized prints, frames and objects made in India for the spaces you call yours.</p></div><div className="footer-cols"><div><b>Explore</b><button onClick={() => scrollTo('collections')}>Collections</button><button onClick={() => scrollTo('products')}>Products</button><button onClick={() => scrollTo('occasions')}>Gifting</button></div><div><b>Make</b><button onClick={() => openCustomize()}>Custom Studio</button><button onClick={() => setQuoteOpen(true)}>Corporate</button><button onClick={() => scrollTo('spaces')}>Real Spaces</button></div><div><b>Care</b><span>4–6 day delivery</span><span>Secure packaging</span><span>Support: +91 90765 43510</span></div></div><div className="footer-bottom"><span>© 2026 Canvas India</span><span>Made for Indian homes & businesses</span><span><Camera size={15}/> @canvasindia</span></div></footer>
 
       <CartDrawer isOpen={cartOpen} onClose={() => setCartOpen(false)} cartItems={cart} onUpdateQuantity={(id, q) => setCart(c => c.map(i => i.product.id === id ? {...i, quantity:q} : i))} onRemoveItem={id => setCart(c => c.filter(i => i.product.id !== id))} onCheckout={() => { alert('Thank you for shopping with Canvas India! Checkout gateway initiated.'); setCartOpen(false); }} />
       <CustomizeModal isOpen={customizeOpen} onClose={() => setCustomizeOpen(false)} product={selectedProduct} onAddToCartCustomized={handleCustomized} />
